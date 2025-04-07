@@ -10,8 +10,11 @@ export const fetchTrendingMovies=async()=>{
             Authorization:`Bearer ${API_KEY}`,
         },
     });
-    return response.data;
-};
+    console.log(response.data.results);
+    
+    return await response.data;
+}
+fetchTrendingMovies();
 
 export const fetchMovies=async(query)=>{
     const response=await axios.get(`${BASE_URL}/search/movie`,{
@@ -20,5 +23,5 @@ export const fetchMovies=async(query)=>{
             Authorization:`Bearer ${API_KEY}`,
         },
     });
-    return response.data;
+    return response.data.results;
 };

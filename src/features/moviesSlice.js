@@ -1,6 +1,6 @@
 //Redux Slice for movies 
-
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { fetchTrendingMovies, fetchMovies } from "../api/tmdbApi";
 
 export const getTrendingMovies=createAsyncThunk(
     "movies/trending",
@@ -10,11 +10,13 @@ export const searchMovies=createAsyncThunk(
     "movies/search",
     async(query)=>await fetchMovies(query)
 );
-const movieSlice=createSlice({
+const moviesSlice = createSlice({
     name:"movies",
     initialState:{trending:[],searchResults:[],status:"idle"},
+
     extraReducers:(builder)=>{
         builder
+
         .addCase(getTrendingMovies.pending,(state)=>{
             state.status="loadiing";    
         })
@@ -22,10 +24,9 @@ const movieSlice=createSlice({
             state.status="succeeded";
             state.trending=action.payload;
         })
-        .addCase(searchMovies.rejected,(state)=>{
+        .addCase(searchMovies.fulfilled,(state,action)=>{
             state.searchResults=action.payload;
-            state.status="failed";
         });
     },
 });
-export default movieSlice.reducer;
+export default moviesSlice.reducer;
