@@ -2,12 +2,21 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTrendingMovies } from "../features/moviesSlice";
+import { setPage } from "../features/moviesSlice";
+import Pagination from "../components/pagination";
 
 import MovieList from "../components/movieList";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { trending, status } = useSelector((state) => state.movies);
+  const { trending, status, currentPage, totalPages } = useSelector(
+    (state) => state.movies
+  );
+
+  const handlePageChange = (page) => {
+    dispatch(setPage(page));
+    dispatch(getTrendingMovies(page));
+  };
 
   useEffect(() => {
     dispatch(getTrendingMovies());
@@ -23,6 +32,11 @@ const Home = () => {
       ) : (
         <div className="py-10">
           <MovieList movies={trending} />
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
         </div>
       )}
     </div>

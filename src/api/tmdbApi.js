@@ -4,17 +4,16 @@ const API_KEY="eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YmJlMTQ4NDhiMzY5YWRmYmNlYWVmNThh
 
 const BASE_URL="https://api.themoviedb.org/3";
 
-export const fetchTrendingMovies=async()=>{
+export const fetchTrendingMovies=async(page=1)=>{
    const response=await axios.get(`${BASE_URL}/trending/movie/week`,{
-        header:{
+        params:{page:page},
+        headers:{
             Authorization:`Bearer ${API_KEY}`,
         },
     });
-    console.log(response.data.results);
-    
-    return await response.data;
-}
-fetchTrendingMovies();
+    console.log(response);
+    return response.data;
+};
 
 export const fetchMovies=async(query)=>{
     const response=await axios.get(`${BASE_URL}/search/movie`,{
@@ -23,5 +22,5 @@ export const fetchMovies=async(query)=>{
             Authorization:`Bearer ${API_KEY}`,
         },
     });
-    return response.data.results;
+    return response.data;
 };
