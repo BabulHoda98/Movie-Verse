@@ -25,4 +25,4 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   );
 };
 
-export default P;
+export default Pagination;
