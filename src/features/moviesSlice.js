@@ -20,7 +20,6 @@ const moviesSlice = createSlice({
     query: "",
     status: "idle",
   },
-
   reducers: {
     setPage: (state, action) => {
       state.query = action.payload;
