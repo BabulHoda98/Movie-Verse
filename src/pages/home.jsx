@@ -2,10 +2,9 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTrendingMovies } from "../features/moviesSlice";
-import { setPage } from "../features/moviesSlice";
-import Pagination from "../components/pagination";
-
 import MovieList from "../components/movieList";
+import Pagination from "../components/pagination";
+import { setPage } from "../features/moviesSlice";
 
 const Home = () => {
   const dispatch = useDispatch();

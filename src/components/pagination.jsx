@@ -11,7 +11,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         Previous
       </button>
       <span className="text-gray-400">
-        {currentPage}/{totalPages}
+        {currentPage} / {totalPages}
       </span>
 
       <button
