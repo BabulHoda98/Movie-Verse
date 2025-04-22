@@ -22,12 +22,15 @@ const moviesSlice = createSlice({
   },
   reducers: {
     setPage: (state, action) => {
+      state.currentPage = action.payload;
+    },
+    setQuery: (state, action) => {
       state.query = action.payload;
     },
   },
+
   extraReducers: (builder) => {
     builder
-
       .addCase(getTrendingMovies.pending, (state) => {
         state.status = "loadiing";
       })

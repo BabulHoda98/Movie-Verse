@@ -1,4 +1,5 @@
 import React from 'react'
+import MovieCard from './movieCard';
 
 const MovieList = ({movies}) => {
   console.log(movies);

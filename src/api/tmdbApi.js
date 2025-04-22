@@ -26,7 +26,6 @@ export const fetchMovies=async(query)=>{
 };
 
 
-
 // import axios from "axios";
 
 // const API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YmJlMTQ4NDhiMzY5YWRmYmNlYWVmNThhMTQ2ZmZhZSIsIm5iZiI6MTcwMDU0NDY0Ni4xNjUsInN1YiI6IjY1NWM0MDg2NTM4NjZlMDBlMjk2MDgxMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.6HabRE2yCkgbe8Gcf2xHKL8Vw1-obQJgJ24l1QZDwfE"; // use a valid token
